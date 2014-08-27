@@ -24,6 +24,12 @@
 		57537AE019AC15E70001DF00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57537ABB19AC15E70001DF00 /* UIKit.framework */; };
 		57537AE819AC15E70001DF00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57537AE619AC15E70001DF00 /* InfoPlist.strings */; };
 		57537AEA19AC15E70001DF00 /* SchplongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57537AE919AC15E70001DF00 /* SchplongTests.m */; };
+		57537AF619AC17650001DF00 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 57537AF519AC17650001DF00 /* TitleScene.m */; };
+		5775789819AD28B4003A5F9F /* SchplongUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775789719AD28B4003A5F9F /* SchplongUtil.m */; };
+		5775789B19AD2B68003A5F9F /* GameTitleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775789A19AD2B68003A5F9F /* GameTitleNode.m */; };
+		5775789E19AD2CD5003A5F9F /* GamePlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775789D19AD2CD5003A5F9F /* GamePlayScene.m */; };
+		577578A119AD2DD5003A5F9F /* PaddleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 577578A019AD2DD5003A5F9F /* PaddleNode.m */; };
+		577578A619AD2E4E003A5F9F /* BallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 577578A519AD2E4E003A5F9F /* BallNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,18 @@
 		57537AE519AC15E70001DF00 /* SchplongTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SchplongTests-Info.plist"; sourceTree = "<group>"; };
 		57537AE719AC15E70001DF00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57537AE919AC15E70001DF00 /* SchplongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchplongTests.m; sourceTree = "<group>"; };
+		57537AF419AC17650001DF00 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = ../TitleScene.h; sourceTree = "<group>"; };
+		57537AF519AC17650001DF00 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = ../TitleScene.m; sourceTree = "<group>"; };
+		5775789619AD28B4003A5F9F /* SchplongUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchplongUtil.h; sourceTree = "<group>"; };
+		5775789719AD28B4003A5F9F /* SchplongUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchplongUtil.m; sourceTree = "<group>"; };
+		5775789919AD2B68003A5F9F /* GameTitleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTitleNode.h; sourceTree = "<group>"; };
+		5775789A19AD2B68003A5F9F /* GameTitleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTitleNode.m; sourceTree = "<group>"; };
+		5775789C19AD2CD5003A5F9F /* GamePlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayScene.h; sourceTree = "<group>"; };
+		5775789D19AD2CD5003A5F9F /* GamePlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayScene.m; sourceTree = "<group>"; };
+		5775789F19AD2DD5003A5F9F /* PaddleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleNode.h; sourceTree = "<group>"; };
+		577578A019AD2DD5003A5F9F /* PaddleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleNode.m; sourceTree = "<group>"; };
+		577578A419AD2E4E003A5F9F /* BallNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallNode.h; sourceTree = "<group>"; };
+		577578A519AD2E4E003A5F9F /* BallNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,16 +139,13 @@
 		57537ABF19AC15E70001DF00 /* Schplong */ = {
 			isa = PBXGroup;
 			children = (
-				57537AC819AC15E70001DF00 /* AppDelegate.h */,
-				57537AC919AC15E70001DF00 /* AppDelegate.m */,
-				57537ACB19AC15E70001DF00 /* Main.storyboard */,
-				57537ACE19AC15E70001DF00 /* ViewController.h */,
-				57537ACF19AC15E70001DF00 /* ViewController.m */,
-				57537AD119AC15E70001DF00 /* MyScene.h */,
-				57537AD219AC15E70001DF00 /* MyScene.m */,
+				577578A319AD2E19003A5F9F /* Scenes */,
+				577578A219AD2E0C003A5F9F /* Nodes */,
 				57537AD419AC15E70001DF00 /* Spaceship.png */,
 				57537AD619AC15E70001DF00 /* Images.xcassets */,
 				57537AC019AC15E70001DF00 /* Supporting Files */,
+				5775789619AD28B4003A5F9F /* SchplongUtil.h */,
+				5775789719AD28B4003A5F9F /* SchplongUtil.m */,
 			);
 			path = Schplong;
 			sourceTree = "<group>";
@@ -138,6 +153,11 @@
 		57537AC019AC15E70001DF00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				57537ACB19AC15E70001DF00 /* Main.storyboard */,
+				57537AC819AC15E70001DF00 /* AppDelegate.h */,
+				57537AC919AC15E70001DF00 /* AppDelegate.m */,
+				57537ACE19AC15E70001DF00 /* ViewController.h */,
+				57537ACF19AC15E70001DF00 /* ViewController.m */,
 				57537AC119AC15E70001DF00 /* Schplong-Info.plist */,
 				57537AC219AC15E70001DF00 /* InfoPlist.strings */,
 				57537AC519AC15E70001DF00 /* main.m */,
@@ -162,6 +182,32 @@
 				57537AE619AC15E70001DF00 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		577578A219AD2E0C003A5F9F /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				5775789F19AD2DD5003A5F9F /* PaddleNode.h */,
+				577578A019AD2DD5003A5F9F /* PaddleNode.m */,
+				5775789919AD2B68003A5F9F /* GameTitleNode.h */,
+				5775789A19AD2B68003A5F9F /* GameTitleNode.m */,
+				577578A419AD2E4E003A5F9F /* BallNode.h */,
+				577578A519AD2E4E003A5F9F /* BallNode.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		577578A319AD2E19003A5F9F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				57537AF419AC17650001DF00 /* TitleScene.h */,
+				57537AF519AC17650001DF00 /* TitleScene.m */,
+				5775789C19AD2CD5003A5F9F /* GamePlayScene.h */,
+				5775789D19AD2CD5003A5F9F /* GamePlayScene.m */,
+				57537AD119AC15E70001DF00 /* MyScene.h */,
+				57537AD219AC15E70001DF00 /* MyScene.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5775789E19AD2CD5003A5F9F /* GamePlayScene.m in Sources */,
+				57537AF619AC17650001DF00 /* TitleScene.m in Sources */,
+				577578A619AD2E4E003A5F9F /* BallNode.m in Sources */,
 				57537AD319AC15E70001DF00 /* MyScene.m in Sources */,
 				57537AD019AC15E70001DF00 /* ViewController.m in Sources */,
+				5775789B19AD2B68003A5F9F /* GameTitleNode.m in Sources */,
+				577578A119AD2DD5003A5F9F /* PaddleNode.m in Sources */,
 				57537ACA19AC15E70001DF00 /* AppDelegate.m in Sources */,
 				57537AC619AC15E70001DF00 /* main.m in Sources */,
+				5775789819AD28B4003A5F9F /* SchplongUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +524,7 @@
 				57537AEF19AC15E70001DF00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57537AF019AC15E70001DF00 /* Build configuration list for PBXNativeTarget "SchplongTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +533,7 @@
 				57537AF219AC15E70001DF00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
