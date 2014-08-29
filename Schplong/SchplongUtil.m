@@ -25,4 +25,12 @@
 	return background;
 }
 
++ (CGFloat) skRandf {
+    return rand() / (CGFloat) RAND_MAX;
+}
+
++ (CGFloat) skRandForLow:(CGFloat)low andHigh:(CGFloat)high {
+    return self.skRandf * (high - low) + low;
+}
+
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BallNode.h"
 
-NSString * const PLAYER_PADDLE_NAME = @"PlayerPaddle";
-NSString * const GAME_BALL_NAME = @"GameBall";
+@interface GamePlayScene : SKScene <SKPhysicsContactDelegate>
 
-@interface GamePlayScene : SKScene
+- (BOOL)isPointOnRightEdge:(CGPoint)point;
+- (BOOL)isPointOnLeftEdge:(CGPoint)point;
+- (BallNode *)getBall;
 
 @end

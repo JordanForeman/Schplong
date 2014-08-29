@@ -55,4 +55,21 @@
 	self.isMoving = false;
 }
 
+- (CGPoint)normalisePoint:(CGPoint)point
+{
+    CGFloat x = point.x / (self.frame.size.width / 2);
+    if (x > 1.0)
+        x = 1.0;
+    else if (x < -1.0)
+        x = -1.0;
+    
+    CGFloat y = point.y / (self.frame.size.height / 2);
+    if (y > 1.0)
+        y = 1.0;
+    else if (y < -1.0)
+        y = -1.0;
+    
+    return CGPointMake(x,y);
+}
+
 @end

@@ -15,6 +15,7 @@
 
 + (instancetype) paddleNodeAtPosition:(CGPoint)position;
 
+- (CGPoint)normalisePoint:(CGPoint)point;
 - (void) startMovingTowardsPosition:(CGPoint)position;
 - (void) moveTowardsTarget;
 @end

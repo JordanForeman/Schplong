@@ -9,5 +9,14 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface BallNode : SKNode
+
+@property (nonatomic) CGPoint ballPosition;
+@property (nonatomic) BOOL needsServed;
+
 + (instancetype) ballNodeAtPosition:(CGPoint)position;
+- (void) setVelocityWithRadians:(float)radians Magnitude:(float)magnitude;
+- (void) serveTowardsLeft;
+- (void) serveTowardsRight;
+- (void)reflectVerticalVelocity;
+
 @end

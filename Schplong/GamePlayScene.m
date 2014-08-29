@@ -10,6 +10,10 @@
 #import "SchplongUtil.h"
 #import "PaddleNode.h"
 #import "BallNode.h"
+#import "VisitablePhysicsBody.h"
+#import "ContactVisitor.h"
+
+static const CGFloat contactTolerance = 1.0;
 
 @implementation GamePlayScene
 
@@ -34,14 +38,14 @@
 - (void) setupPaddles {
 	PaddleNode *playerPaddle = [PaddleNode paddleNodeAtPosition:CGPointMake(GAME_BOARD_PADDING,
 																			CGRectGetMidY(self.frame))];
-	playerPaddle.name = PLAYER_PADDLE_NAME;
+	playerPaddle.name = @"PlayerPaddle";
 	[self addChild:playerPaddle];
 }
 
 - (void) setupBall {
 	BallNode *ball = [BallNode ballNodeAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
 	
-	ball.name = GAME_BALL_NAME;
+	ball.name = @"GameBall";
 	[self addChild:ball];
 }
 
@@ -57,6 +61,28 @@
 	if (playerPaddle.isMoving) {
 		[playerPaddle moveTowardsTarget];
 	}
+	
+	BallNode *gameBall = [self getBall];
+	if (gameBall.needsServed) {
+		[gameBall serveTowardsRight];
+		gameBall.needsServed = false;
+	}
+}
+
+/*=========================
+ SKPhysicsContact - Delegate
+ ==========================*/
+- (void) didBeginContact:(SKPhysicsContact *)contact {
+	SKPhysicsBody *firstBody, *secondBody;
+	firstBody = contact.bodyA;
+	secondBody = contact.bodyB;
+	
+	// Alternatively use the visitor pattern for a double dispatch approach
+    VisitablePhysicsBody *firstVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:firstBody];
+    VisitablePhysicsBody *secondVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:secondBody];
+    
+    [firstVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:secondBody forContact:contact]];
+    [secondVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:firstBody forContact:contact]];	
 }
 
 /*=======================
@@ -85,11 +111,25 @@
  Convenience
  ==========================*/
 - (PaddleNode *) getPaddle {
-	return (PaddleNode *)[self childNodeWithName:PLAYER_PADDLE_NAME];
+	return (PaddleNode *)[self childNodeWithName:@"PlayerPaddle"];
 }
 
 - (BallNode *) getBall {
-	return (BallNode *)[self childNodeWithName:GAME_BALL_NAME];
+	return (BallNode *)[self childNodeWithName:@"GameBall"];
+}
+
+- (BOOL)isPointOnLeftEdge:(CGPoint)point {
+    if (floorf(point.x) <= contactTolerance)
+        return YES;
+    else
+        return NO;
+}
+
+- (BOOL)isPointOnRightEdge:(CGPoint)point {
+    if (ceilf(point.x) >= self.frame.size.width - contactTolerance)
+        return YES;
+    else
+        return NO;
 }
 
 @end
