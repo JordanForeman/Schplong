@@ -34,14 +34,14 @@
 - (void) setupPaddles {
 	PaddleNode *playerPaddle = [PaddleNode paddleNodeAtPosition:CGPointMake(GAME_BOARD_PADDING,
 																			CGRectGetMidY(self.frame))];
-	playerPaddle.name = @"PlayerPaddle";
+	playerPaddle.name = PLAYER_PADDLE_NAME;
 	[self addChild:playerPaddle];
 }
 
 - (void) setupBall {
 	BallNode *ball = [BallNode ballNodeAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
 	
-	ball.name = @"GameBall";
+	ball.name = GAME_BALL_NAME;
 	[self addChild:ball];
 }
 
@@ -53,7 +53,7 @@
 }
 
 - (void) update:(NSTimeInterval)currentTime {
-	PaddleNode *playerPaddle = (PaddleNode *)[self childNodeWithName:@"PlayerPaddle"];
+	PaddleNode *playerPaddle = [self getPaddle];
 	if (playerPaddle.isMoving) {
 		[playerPaddle moveTowardsTarget];
 	}
@@ -64,22 +64,32 @@
  ========================*/
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
+	PaddleNode *playerPaddle = [self getPaddle];
 	CGPoint positionInScene = [touch locationInNode:self];
-	
-	PaddleNode *playerPaddle = (PaddleNode *)[self childNodeWithName:@"PlayerPaddle"];
 	[playerPaddle startMovingTowardsPosition:positionInScene];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	PaddleNode *playerPaddle = (PaddleNode *)[self childNodeWithName:@"PlayerPaddle"];
+	PaddleNode *playerPaddle = [self getPaddle];
 	playerPaddle.isMoving = false;
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
+	PaddleNode *playerPaddle = [self getPaddle];
 	
-	PaddleNode *playerPaddle = (PaddleNode *)[self childNodeWithName:@"PlayerPaddle"];
 	playerPaddle.targetDestination = [touch locationInNode:self];
+}
+
+/*=========================
+ Convenience
+ ==========================*/
+- (PaddleNode *) getPaddle {
+	return (PaddleNode *)[self childNodeWithName:PLAYER_PADDLE_NAME];
+}
+
+- (BallNode *) getBall {
+	return (BallNode *)[self childNodeWithName:GAME_BALL_NAME];
 }
 
 @end

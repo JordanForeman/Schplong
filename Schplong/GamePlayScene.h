@@ -8,6 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+NSString * const PLAYER_PADDLE_NAME = @"PlayerPaddle";
+NSString * const GAME_BALL_NAME = @"GameBall";
+
 @interface GamePlayScene : SKScene
 
 @end
